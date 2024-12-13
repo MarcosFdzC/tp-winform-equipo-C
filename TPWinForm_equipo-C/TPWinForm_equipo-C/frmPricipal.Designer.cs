@@ -1,6 +1,6 @@
 ﻿namespace TPWinForm_equipo_C
 {
-    partial class Form1
+    partial class frmPricipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.

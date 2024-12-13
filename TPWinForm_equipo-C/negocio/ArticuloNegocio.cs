@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dominio;
 
-namespace TPWinForm_equipo_C
+namespace negocio
 {
-    internal class Categoria
+    public class ArticuloNegocio
     {
     }
 }

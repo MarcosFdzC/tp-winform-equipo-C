@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace TPWinForm_equipo_C
 {
     internal static class Program
@@ -16,7 +15,7 @@ namespace TPWinForm_equipo_C
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmPricipal());
         }
     }
 }
