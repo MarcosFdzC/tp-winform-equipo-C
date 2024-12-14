@@ -8,7 +8,7 @@ using dominio;
 
 namespace negocio
 {
-    internal class ImagenNegocio
+    internal class AccesoDatos
     {
     }
 }
