@@ -18,5 +18,10 @@ namespace TPWinForm_equipo_C
         {
             InitializeComponent();
         }
+
+        private void dataGridView1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
