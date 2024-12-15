@@ -12,9 +12,9 @@ namespace dominio
         public int Codigo {  get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public Marca Marca { get; set; } // asociar con la clase Marca
-        public Categoria Categoria { get; set; } // asociar con la clase Categoria
-        public Imagen Imagenes { get; set; } // asociar con la clase Imagen
+        public Marca Marca { get; set; }
+        public Categoria Categoria { get; set; }
+        public List<Imagen> Imagenes { get; set; }
         public float Precio { get; set; }
     }
 }
