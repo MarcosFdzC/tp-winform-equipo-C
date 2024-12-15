@@ -18,7 +18,8 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("Select * from ARTICULOS");//Consulta generica, falta definir la consulta donde se traen todos los datos necesarios
+                datos.setearConsulta("Select Id from ARTICULOS");//Consulta generica, falta definir la consulta donde se traen todos los datos necesarios
+                //Puse esta consulta para probar, pero no logré enviarla
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
