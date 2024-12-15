@@ -18,7 +18,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("Select * from ARTICULOS");
+                datos.setearConsulta("Select * from ARTICULOS");//Consulta generica, falta definir la consulta donde se traen todos los datos necesarios
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -29,17 +29,20 @@ namespace negocio
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
 
-                    //creamos la escritura de la lista por ultimo porque no estoy seguro de como voy a hacer la consulta a la db... xd 
-                    //aux.Imagenes = new List<Imagen>();
-
+                    //Instancia Lista Imagen
+                    aux.Imagenes = new List<Imagen>();
+                    aux.Imagenes[0].Id = (int)datos.Lector["IdImagen"];
+                    aux.Imagenes[0].IdArticulo = (int)datos.Lector["IdArticulo"];
+                    aux.Imagenes[0].ImagenUrl = (string)datos.Lector["ImagenUrl"];
                     //instancia Marca
                     aux.Marca = new Marca();
                     aux.Marca.Id = (int)datos.Lector["IdMarca"];
-                    aux.Marca.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     //instancia Categoria
                     aux.Categoria = new Categoria();
                     aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
-                    aux.Categoria.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+
                     aux.Precio = datos.Lector.GetFloat(0);
 
                     lista.Add(aux);
