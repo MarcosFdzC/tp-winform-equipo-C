@@ -18,23 +18,16 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("Select Id from ARTICULOS");//Consulta generica, falta definir la consulta donde se traen todos los datos necesarios
-                //Puse esta consulta para probar, pero no logré enviarla
+                datos.setearConsulta("Select Art.Id IdArticulo, Codigo, Nombre, Art.Descripcion ArtDescripcion, IdMarca, M.Descripcion Marca, IdCategoria, Cat.Descripcion Categoria, Img.Id IdImagen, Img.ImagenUrl, Art.Precio From ARTICULOS Art, MARCAS M, CATEGORIAS Cat, IMAGENES Img where Art.IdMarca = M.Id AND Art.IdCategoria = Cat.Id AND Img.IdArticulo = Art.Id");//Consulta final con sus alias ya incluidos, esta consulta trae todos los datos que necesitamos cargar en la lista de tipo Ariculo
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
-                    aux.Id = (int)datos.Lector["Id"];
-                    aux.Codigo = (int)datos.Lector["Codigo"];
+                    aux.Id = (int)datos.Lector["IdArticulo"];//Entre corchetes va el nombre/alias de la columna. En este caso IdArticulo es un alias que le puse para diferenciarlo de los otros ids. Como por ejemplo el Id de Categoria o Marca.
+                    aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-
-                    //Instancia Lista Imagen
-                    aux.Imagenes = new List<Imagen>();
-                    aux.Imagenes[0].Id = (int)datos.Lector["IdImagen"];
-                    aux.Imagenes[0].IdArticulo = (int)datos.Lector["IdArticulo"];
-                    aux.Imagenes[0].ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                    aux.Descripcion = (string)datos.Lector["ArtDescripcion"];
                     //instancia Marca
                     aux.Marca = new Marca();
                     aux.Marca.Id = (int)datos.Lector["IdMarca"];
@@ -43,8 +36,15 @@ namespace negocio
                     aux.Categoria = new Categoria();
                     aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
                     aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
-
-                    aux.Precio = datos.Lector.GetFloat(0);
+                    //Instancia Imagen auxiliar para despues ser agregada a la lista
+                    Imagen ImgAux = new Imagen();
+                    ImgAux.Id = (int)datos.Lector["IdImagen"];
+                    ImgAux.IdArticulo = (int)datos.Lector["IdArticulo"];
+                    ImgAux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                    //Instancia Lista Imagen
+                    aux.Imagenes = new List<Imagen>();
+                    aux.Imagenes.Add(ImgAux);
+                    aux.Precio = (decimal)datos.Lector["Precio"];
 
                     lista.Add(aux);
                 }
