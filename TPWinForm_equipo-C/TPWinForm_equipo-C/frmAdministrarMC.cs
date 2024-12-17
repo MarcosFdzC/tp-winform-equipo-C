@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TPWinForm_equipo_C
 {
-    public partial class frmAdminMC : Form
+    public partial class frmAdministrarMC : Form
     {
-        public frmAdminMC()
+        public frmAdministrarMC()
         {
             InitializeComponent();
         }

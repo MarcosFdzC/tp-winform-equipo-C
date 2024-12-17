@@ -1,6 +1,6 @@
 ﻿namespace TPWinForm_equipo_C
 {
-    partial class frmAdminMC
+    partial class frmAdministrarMC
     {
         /// <summary>
         /// Required designer variable.
