@@ -60,6 +60,9 @@
     <Compile Include="frmAltaArticulo.Designer.cs">
       <DependentUpon>frmAltaArticulo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAltaArticulo.resx">
+      <DependentUpon>frmAltaArticulo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPricipal.resx">
       <DependentUpon>frmPricipal.cs</DependentUpon>
     </EmbeddedResource>

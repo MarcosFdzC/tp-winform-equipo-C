@@ -66,5 +66,10 @@ namespace TPWinForm_equipo_C
         {
 
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
