@@ -20,7 +20,7 @@ namespace negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
+            conexion = new SqlConnection("server=.\\SQLEXPRESS03; database=CATALOGO_P3_DB; integrated security=true");
             comando = new SqlCommand();
         }
         public void setearConsulta(string consulta)
