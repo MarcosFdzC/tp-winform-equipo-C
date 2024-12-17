@@ -1,6 +1,6 @@
 ﻿namespace TPWinForm_equipo_C
 {
-    partial class prueba2
+    partial class frmAltaArticulo
     {
         /// <summary>
         /// Required designer variable.
