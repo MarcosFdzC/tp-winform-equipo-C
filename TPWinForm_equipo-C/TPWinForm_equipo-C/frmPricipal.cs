@@ -29,6 +29,11 @@ namespace TPWinForm_equipo_C
                 dataGridView1.DataSource = listaArticulos;
                 dataGridView1.AutoResizeColumns();
                 ocultarColumnas();
+                cboCampo.Items.Add("Nombre");
+                cboCampo.Items.Add("Descripcion");
+                cboCampo.Items.Add("Marca");
+                cboCampo.Items.Add("Categoria");
+                cboCampo.Items.Add("Precio");
             }
             catch (Exception ex)
             {
@@ -69,6 +74,55 @@ namespace TPWinForm_equipo_C
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampo.SelectedItem.ToString();
+            switch (opcion)
+            {
+                case "Precio":
+                    cboCriterio.Items.Clear();
+                    cboCriterio.Items.Add("Mayor a:");
+                    cboCriterio.Items.Add("Menor a:");
+                    cboCriterio.Items.Add("Igual a:");
+                    break;
+                case "Nombre":
+                    cboCriterio.Items.Clear();
+                    cboCriterio.Items.Add("Comienza con:");
+                    cboCriterio.Items.Add("Termina con:");
+                    cboCriterio.Items.Add("Contiene:");
+                    break;
+                case "Marca":
+                    cboCriterio.Items.Clear();
+                    cboCriterio.Items.Add("Comienza con:");
+                    cboCriterio.Items.Add("Termina con:");
+                    cboCriterio.Items.Add("Contiene:");
+                    break;
+                case "Categoria":
+                    cboCriterio.Items.Clear();
+                    cboCriterio.Items.Add("Comienza con:");
+                    cboCriterio.Items.Add("Termina con:");
+                    cboCriterio.Items.Add("Contiene:");
+                    break;
+            }
+        }
+
+        private void btnFiltrarEsp_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltro.Text;
+                dataGridView1.DataSource = negocio.filtrar(campo, criterio, filtro);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
         }
     }
