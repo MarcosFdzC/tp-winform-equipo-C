@@ -206,5 +206,21 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void eliminarLogico(int id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                // Cambiar el IdMarca del artículo a un valor negativo
+                datos.setearConsulta("UPDATE ARTICULOS SET IdMarca = IdMarca * -1 WHERE Id = @Id");
+                datos.setearParametro("@Id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al realizar la eliminación lógica: " + ex.Message);
+            }
+        }
     }
 }
