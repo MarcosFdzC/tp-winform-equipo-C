@@ -233,6 +233,26 @@ namespace negocio
                 datos.setearParametro("@precio", modificar.Precio);
                 datos.ejecutarAccion();
             }
+            catch (Exception ex) 
+            { 
+                throw ex; 
+            }
+            finally 
+            { 
+                datos.cerrarConexion();
+            }
+        }
+
+        public void eliminarLogico(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // Cambiar el IdMarca del artículo a un valor negativo
+                datos.setearConsulta("UPDATE ARTICULOS SET IdMarca = IdMarca * -1 WHERE Id = @Id");
+                datos.setearParametro("@Id", id);
+                datos.ejecutarAccion();
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -240,6 +260,7 @@ namespace negocio
             finally
             {
                 datos.cerrarConexion();
+                throw new Exception("Error al realizar la eliminación lógica: " + ex.Message);
             }
         }
     }

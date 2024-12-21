@@ -40,7 +40,10 @@
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -48,7 +51,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(21, 165);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
@@ -69,7 +72,7 @@
             // txtFiltro
             // 
             this.txtFiltro.Location = new System.Drawing.Point(143, 124);
-            this.txtFiltro.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtFiltro.Margin = new System.Windows.Forms.Padding(5);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(249, 22);
             this.txtFiltro.TabIndex = 2;
@@ -78,7 +81,7 @@
             // btnFiltro
             // 
             this.btnFiltro.Location = new System.Drawing.Point(446, 121);
-            this.btnFiltro.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnFiltro.Margin = new System.Windows.Forms.Padding(5);
             this.btnFiltro.Name = "btnFiltro";
             this.btnFiltro.Size = new System.Drawing.Size(100, 28);
             this.btnFiltro.TabIndex = 3;
@@ -91,7 +94,7 @@
             this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCampo.FormattingEnabled = true;
             this.cboCampo.Location = new System.Drawing.Point(119, 52);
-            this.cboCampo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cboCampo.Margin = new System.Windows.Forms.Padding(5);
             this.cboCampo.Name = "cboCampo";
             this.cboCampo.Size = new System.Drawing.Size(160, 24);
             this.cboCampo.TabIndex = 4;
@@ -112,7 +115,7 @@
             this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterio.FormattingEnabled = true;
             this.cboCriterio.Location = new System.Drawing.Point(386, 52);
-            this.cboCriterio.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cboCriterio.Margin = new System.Windows.Forms.Padding(5);
             this.cboCriterio.Name = "cboCriterio";
             this.cboCriterio.Size = new System.Drawing.Size(160, 24);
             this.cboCriterio.TabIndex = 6;
@@ -140,15 +143,15 @@
             // txtFiltroAvanzado
             // 
             this.txtFiltroAvanzado.Location = new System.Drawing.Point(624, 52);
-            this.txtFiltroAvanzado.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtFiltroAvanzado.Margin = new System.Windows.Forms.Padding(5);
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(132, 22);
             this.txtFiltroAvanzado.TabIndex = 9;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(59, 480);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAgregar.Location = new System.Drawing.Point(16, 375);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 31);
             this.btnAgregar.TabIndex = 10;
@@ -167,12 +170,33 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(543, 377);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 11;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(832, 188);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(411, 235);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmPricipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1564, 682);
             this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtFiltroAvanzado);
             this.Controls.Add(this.lblFiltroAvanzado);
@@ -184,11 +208,12 @@
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmPricipal";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmPricipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,6 +233,8 @@
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
