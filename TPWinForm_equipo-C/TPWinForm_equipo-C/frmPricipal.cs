@@ -22,6 +22,10 @@ namespace TPWinForm_equipo_C
 
         private void frmPricipal_Load(object sender, EventArgs e)
         {
+            cargar();
+        }
+        private void cargar()
+        {
             try
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
@@ -76,6 +80,7 @@ namespace TPWinForm_equipo_C
         {
             frmAltaArticulo alta = new frmAltaArticulo();
             alta.ShowDialog();
+            cargar();
         }
 
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,6 +130,15 @@ namespace TPWinForm_equipo_C
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
+            frmAltaArticulo alta = new frmAltaArticulo(seleccionado);
+            alta.ShowDialog();
+            cargar();
         }
     }
 }

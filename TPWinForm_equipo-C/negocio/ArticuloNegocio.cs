@@ -18,7 +18,7 @@ namespace negocio
 
             try
             {
-                string consulta = "Select Art.Id IdArticulo, Codigo, Nombre, Art.Descripcion ArtDescripcion, IdMarca, M.Descripcion Marca, IdCategoria, Cat.Descripcion Categoria, Img.Id IdImagen, Img.ImagenUrl, Art.Precio From ARTICULOS Art, MARCAS M, CATEGORIAS Cat, IMAGENES Img where Art.IdMarca = M.Id AND Art.IdCategoria = Cat.Id AND Img.IdArticulo = Art.Id AND ";
+                string consulta = "Select Art.Id IdArticulo, Codigo, Nombre, Art.Descripcion ArtDescripcion, IdMarca, M.Descripcion Marca, IdCategoria, Cat.Descripcion Categoria, Img.Id IdImagen, Img.ImagenUrl, Art.Precio From ARTICULOS Art, MARCAS M, CATEGORIAS Cat, IMAGENES Img where Art.IdMarca = M.Id AND Art.IdCategoria = Cat.Id AND Img.IdArticulo = Art.Id";
 
                 switch (campo)
                 {
@@ -144,27 +144,39 @@ namespace negocio
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
-                    aux.Id = (int)datos.Lector["IdArticulo"];//Entre corchetes va el nombre/alias de la columna. En este caso IdArticulo es un alias que le puse para diferenciarlo de los otros ids. Como por ejemplo el Id de Categoria o Marca.
-                    aux.Codigo = (string)datos.Lector["Codigo"];
-                    aux.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Descripcion = (string)datos.Lector["ArtDescripcion"];
+                    if (!(datos.Lector["IdArticulo"] is DBNull))
+                        aux.Id = (int)datos.Lector["IdArticulo"];//Entre corchetes va el nombre/alias de la columna. En este caso IdArticulo es un alias que le puse para diferenciarlo de los otros ids. Como por ejemplo el Id de Categoria o Marca.
+                    if (!(datos.Lector["Codigo"] is DBNull))
+                        aux.Codigo = (string)datos.Lector["Codigo"];
+                    if (!(datos.Lector["Nombre"] is DBNull))
+                        aux.Nombre = (string)datos.Lector["Nombre"];
+                    if (!(datos.Lector["ArtDescripcion"] is DBNull))
+                        aux.Descripcion = (string)datos.Lector["ArtDescripcion"];
                     //instancia Marca
                     aux.Marca = new Marca();
-                    aux.Marca.Id = (int)datos.Lector["IdMarca"];
-                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    if (!(datos.Lector["IdMarca"] is DBNull))
+                        aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                    if (!(datos.Lector["Marca"] is DBNull))
+                        aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     //instancia Categoria
                     aux.Categoria = new Categoria();
-                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
-                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    if (!(datos.Lector["IdCategoria"] is DBNull))
+                        aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                        aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     //Instancia Imagen auxiliar para despues ser agregada a la lista
                     Imagen ImgAux = new Imagen();
-                    ImgAux.Id = (int)datos.Lector["IdImagen"];
-                    ImgAux.IdArticulo = (int)datos.Lector["IdArticulo"];
-                    ImgAux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                    if (!(datos.Lector["IdImagen"] is DBNull))
+                        ImgAux.Id = (int)datos.Lector["IdImagen"];
+                    if (!(datos.Lector["IdArticulo"] is DBNull))
+                        ImgAux.IdArticulo = (int)datos.Lector["IdArticulo"];
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                        ImgAux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
                     //Instancia Lista Imagen
                     aux.Imagenes = new List<Imagen>();
                     aux.Imagenes.Add(ImgAux);
-                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    if (!(datos.Lector["Precio"] is DBNull))
+                        aux.Precio = (decimal)datos.Lector["Precio"];
 
                     lista.Add(aux);
                 }
@@ -195,6 +207,30 @@ namespace negocio
                 datos.setearParametro("@IdCategoria", nuevo.Categoria.Id);
                 datos.setearParametro("@Precio", nuevo.Precio);
 
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void modificar(Articulo modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update ARTICULOS set Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio where Id = @idArticulo");
+                datos.setearParametro("@idArticulo", modificar.Id);
+                datos.setearParametro("@codigo", modificar.Codigo);
+                datos.setearParametro("@nombre", modificar.Nombre);
+                datos.setearParametro("@descripcion", modificar.Descripcion);
+                datos.setearParametro("@idMarca", modificar.Marca.Id);
+                datos.setearParametro("@idCategoria", modificar.Categoria.Id);
+                datos.setearParametro("@precio", modificar.Precio);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
