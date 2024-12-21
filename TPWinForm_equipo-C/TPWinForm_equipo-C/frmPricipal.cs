@@ -23,12 +23,15 @@ namespace TPWinForm_equipo_C
         private void frmPricipal_Load(object sender, EventArgs e)
         {
             cargar();
+            cargarCampos();
+
         }
         private void cargar()
         {
             try
             {
-                cargarCampos();
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                listaArticulos = negocio.listar();
                 dataGridView1.DataSource = listaArticulos;
                 dataGridView1.AutoResizeColumns();
                 Articulo seleccionado = new Articulo();
@@ -45,10 +48,8 @@ namespace TPWinForm_equipo_C
 
         private void cargarCampos()
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                listaArticulos = negocio.listar();
                 cboCampo.Items.Add("Nombre");
                 cboCampo.Items.Add("Descripcion");
                 cboCampo.Items.Add("Marca");
@@ -63,8 +64,8 @@ namespace TPWinForm_equipo_C
 
         private void ocultarColumnas()
         {
-            //dataGridView1.Columns["Id"].Visible = false;
-            //dataGridView1.Columns["Codigo"].Visible = false;
+            dataGridView1.Columns["Id"].Visible = false;
+            dataGridView1.Columns["Codigo"].Visible = false;
         }
 
         private void btnFiltro_Click(object sender, EventArgs e)
@@ -155,48 +156,53 @@ namespace TPWinForm_equipo_C
             alta.ShowDialog();
             cargar();
         }
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            eliminar();
-        }
+        
 
         private void eliminar(bool logico = false)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            Articulo seleccionado;
+            //ArticuloNegocio negocio = new ArticuloNegocio();
+            //Articulo seleccionado;
+            //try
+            //{
+            //    DialogResult respuesta = MessageBox.Show("¿De verdad quieres eliminar este articulo?");
+            //    if (respuesta == DialogResult.Yes)
+            //    {
+            //        seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
+
+            //        negocio.eliminarLogico(seleccionado.Id);
+
+            //        cargar();
+            //    }
+            //}
+            //catch (Exception e)
+            //{
+            //    throw e;
+            //}
+        }
+        
+        private void cargarImagen(string imagen)
+        {
             try
             {
-                DialogResult respuesta = MessageBox.Show("¿De verdad quieres eliminar este articulo?");
-                if (respuesta == DialogResult.Yes)
-                {
-                    seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
-
-                    negocio.eliminarLogico(seleccionado.Id);
-
-                    cargar();
-                }
+                pbxArticulo.Load(imagen);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw e;
+                pbxArticulo.Load("https://imgs.search.brave.com/kb8wBMhFd0vGUo9uR3fzClIsRoWkr9QnZ69Le5BgQiI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS9maWd1cmEtZGli/dWpvcy1hbmltYWRv/cy1iYXJiYS1nYWZh/cy1tdWVzdHJhLW1l/bnNhamUtZXJyb3It/NDA0LWZyZW50ZS1j/aWVsby1zb2xlYWRv/LW51YmVzXzkxMTYy/MC0zNDQ4MC5qcGc_/c2l6ZT02MjYmZXh0/PWpwZw");
             }
         }
+
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             Articulo seleccionado = new Articulo();
             seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
             cargarImagen(seleccionado.Imagenes[0].ImagenUrl);
         }
-        private void cargarImagen(string imagen)
+
+        private void btnEliminarL_Click(object sender, EventArgs e)
         {
-            try
-            {
-                pictureBox1.Load(imagen);
-            }
-            catch (Exception ex)
-            {
-                pictureBox1.Load("https://imgs.search.brave.com/kb8wBMhFd0vGUo9uR3fzClIsRoWkr9QnZ69Le5BgQiI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS9maWd1cmEtZGli/dWpvcy1hbmltYWRv/cy1iYXJiYS1nYWZh/cy1tdWVzdHJhLW1l/bnNhamUtZXJyb3It/NDA0LWZyZW50ZS1j/aWVsby1zb2xlYWRv/LW51YmVzXzkxMTYy/MC0zNDQ4MC5qcGc_/c2l6ZT02MjYmZXh0/PWpwZw");
-            }
+            eliminar();
+            cargar();
         }
     }
 }

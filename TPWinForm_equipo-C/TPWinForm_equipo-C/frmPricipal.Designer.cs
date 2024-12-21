@@ -40,10 +40,10 @@
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxArticulo = new System.Windows.Forms.PictureBox();
+            this.btnEliminarL = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -58,6 +58,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(803, 289);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // label1
             // 
@@ -150,7 +151,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(16, 375);
+            this.btnAgregar.Location = new System.Drawing.Point(59, 480);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 31);
@@ -161,7 +162,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(205, 480);
+            this.btnModificar.Location = new System.Drawing.Point(180, 480);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(99, 31);
@@ -170,33 +171,34 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // btnEliminar
+            // pbxArticulo
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(543, 377);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 11;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.pbxArticulo.Location = new System.Drawing.Point(832, 165);
+            this.pbxArticulo.Name = "pbxArticulo";
+            this.pbxArticulo.Size = new System.Drawing.Size(333, 289);
+            this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxArticulo.TabIndex = 12;
+            this.pbxArticulo.TabStop = false;
             // 
-            // pictureBox1
+            // btnEliminarL
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(832, 188);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(411, 235);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.btnEliminarL.Location = new System.Drawing.Point(725, 480);
+            this.btnEliminarL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminarL.Name = "btnEliminarL";
+            this.btnEliminarL.Size = new System.Drawing.Size(99, 31);
+            this.btnEliminarL.TabIndex = 13;
+            this.btnEliminarL.Text = "Eliminar";
+            this.btnEliminarL.UseVisualStyleBackColor = true;
+            this.btnEliminarL.Click += new System.EventHandler(this.btnEliminarL_Click);
             // 
             // frmPricipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1564, 682);
+            this.Controls.Add(this.btnEliminarL);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtFiltroAvanzado);
             this.Controls.Add(this.lblFiltroAvanzado);
@@ -213,7 +215,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmPricipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,8 +235,8 @@
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxArticulo;
+        private System.Windows.Forms.Button btnEliminarL;
     }
 }
 

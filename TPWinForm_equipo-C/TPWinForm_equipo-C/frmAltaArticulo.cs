@@ -144,12 +144,11 @@ namespace TPWinForm_equipo_C
         {
             cargarImagen(txtImagen.Text);
         }
-        private void cargarImagen(String img)
+        private void cargarImagen(string img)
         {
             try
             {
                 pbxArticulo.Load(img);
-
             }
             catch (Exception ex)
             {
