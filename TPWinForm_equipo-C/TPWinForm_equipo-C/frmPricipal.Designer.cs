@@ -43,6 +43,7 @@
             this.pbxArticulo = new System.Windows.Forms.PictureBox();
             this.btnEliminarL = new System.Windows.Forms.Button();
             this.btnEliminarFisico = new System.Windows.Forms.Button();
+            this.btnVerDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -152,7 +153,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(59, 480);
+            this.btnAgregar.Location = new System.Drawing.Point(21, 480);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 31);
@@ -163,7 +164,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(180, 480);
+            this.btnModificar.Location = new System.Drawing.Point(125, 480);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(99, 31);
@@ -183,7 +184,7 @@
             // 
             // btnEliminarL
             // 
-            this.btnEliminarL.Location = new System.Drawing.Point(328, 480);
+            this.btnEliminarL.Location = new System.Drawing.Point(230, 480);
             this.btnEliminarL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminarL.Name = "btnEliminarL";
             this.btnEliminarL.Size = new System.Drawing.Size(99, 31);
@@ -203,11 +204,23 @@
             this.btnEliminarFisico.UseVisualStyleBackColor = true;
             this.btnEliminarFisico.Click += new System.EventHandler(this.btnEliminarFisico_Click);
             // 
+            // btnVerDetalle
+            // 
+            this.btnVerDetalle.Location = new System.Drawing.Point(344, 480);
+            this.btnVerDetalle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVerDetalle.Name = "btnVerDetalle";
+            this.btnVerDetalle.Size = new System.Drawing.Size(228, 31);
+            this.btnVerDetalle.TabIndex = 16;
+            this.btnVerDetalle.Text = "Ver detalles / Agregar Imagnes";
+            this.btnVerDetalle.UseVisualStyleBackColor = true;
+            this.btnVerDetalle.Click += new System.EventHandler(this.btnVerDetalle_Click);
+            // 
             // frmPricipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1564, 682);
+            this.Controls.Add(this.btnVerDetalle);
             this.Controls.Add(this.btnEliminarFisico);
             this.Controls.Add(this.btnEliminarL);
             this.Controls.Add(this.btnModificar);
@@ -251,6 +264,7 @@
         private System.Windows.Forms.PictureBox pbxArticulo;
         private System.Windows.Forms.Button btnEliminarL;
         private System.Windows.Forms.Button btnEliminarFisico;
+        private System.Windows.Forms.Button btnVerDetalle;
     }
 }
 

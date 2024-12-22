@@ -10,6 +10,14 @@ namespace negocio
 {
     public class ImagenNegocio
     {
+        public List<Imagen> listar(Articulo art)
+        {
+            List<Imagen> lista = new List<Imagen>();
+            AccesoDatos datos = new AccesoDatos();
+            datos.setearConsulta("Select IdArticulo, ImagenUrl from IMAGENES where IdArticulo = @IdArticulo");
+            datos.setearParametro("IdArticulo", art.Id);
+            return lista;
+        }
         public void agregar(Imagen nuevo)
         {
             AccesoDatos datos = new AccesoDatos();

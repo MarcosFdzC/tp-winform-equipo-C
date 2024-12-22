@@ -219,5 +219,12 @@ namespace TPWinForm_equipo_C
             }
         }
 
+        private void btnVerDetalle_Click(object sender, EventArgs e)
+        {
+            Articulo art = new Articulo();
+            art = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
+            frmVerDetalles detalles = new frmVerDetalles(art);
+            detalles.ShowDialog();
+        }
     }
 }
