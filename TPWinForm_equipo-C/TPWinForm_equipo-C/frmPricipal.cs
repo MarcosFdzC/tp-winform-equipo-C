@@ -71,6 +71,11 @@ namespace TPWinForm_equipo_C
 
         private void btnFiltro_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtFiltro_KeyPress(object sender, KeyPressEventArgs e)
+        {
             List<Articulo> listaFiltrada;
             string filtro = txtFiltro.Text;
 
@@ -83,15 +88,9 @@ namespace TPWinForm_equipo_C
             {
                 listaFiltrada = listaArticulos; // Si buscamos sin ningun texto se resetea la busqueda y muestra toda la lista
             }
-
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listaFiltrada;
             ocultarColumnas();
-        }
-
-        private void txtFiltro_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -173,8 +172,11 @@ namespace TPWinForm_equipo_C
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             Articulo seleccionado = new Articulo();
-            seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.Imagenes[0].ImagenUrl);
+            if (dataGridView1.CurrentRow != null)
+            {
+                seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.Imagenes[0].ImagenUrl);
+            }
         }
 
         private void btnEliminarL_Click(object sender, EventArgs e)
@@ -183,7 +185,7 @@ namespace TPWinForm_equipo_C
             Articulo seleccionado;
             try
             {
-                DialogResult respuesta = MessageBox.Show("¿Eliminar este articulo de manera permanente?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult respuesta = MessageBox.Show("¿Eliminar este articulo de manera permanente?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;

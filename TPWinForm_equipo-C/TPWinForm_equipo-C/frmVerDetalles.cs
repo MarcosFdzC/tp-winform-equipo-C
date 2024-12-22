@@ -15,7 +15,6 @@ namespace TPWinForm_equipo_C
     public partial class frmVerDetalles : Form
     {
         Articulo articulo;
-        private int currentImageIndex = 0;
         public frmVerDetalles(Articulo articulo)
         {
             InitializeComponent();
@@ -32,68 +31,52 @@ namespace TPWinForm_equipo_C
             txtPrecio.Text = articulo.Precio.ToString();
             ImagenNegocio imagenNegocio = new ImagenNegocio();
             imagenNegocio.listar(articulo);
-            if (articulo.Imagenes.Count > 0)
-            {
-                currentImageIndex = 0;
-                MostrarImagenActual();
-            }
-            else
-            {
-                pbxListaImg.Image = null;
-            }
+            cargarImagen();
 
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //ImagenNegocio imagenNegocio = new ImagenNegocio();
-            //Imagen imgAux = new Imagen();
-            //imgAux.IdArticulo = articulo.Id;
-            //imgAux.ImagenUrl = txtAgregarImg.Text;
-            //if (txtAgregarImg.Text != "")
-            //{
-            //    imagenNegocio.agregar(imgAux);
-            //    MessageBox.Show("Imagen agregada exitosamente");
-            //}
-            //else
-            //    MessageBox.Show("Inserte una url primero");
-
+            ImagenNegocio imgNegocio = new ImagenNegocio();
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Agregar imagen?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    Imagen imgAux = new Imagen();
+                    imgAux.IdArticulo = articulo.Id;
+                    imgAux.ImagenUrl = txtAgregarImg.Text;
+                    imgNegocio.agregar(imgAux);
+                    txtAgregarImg.Text = "";
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al agregar la imagen: " + ex.Message);
+            }
+            
         }
 
         private void btnAnterior_Click(object sender, EventArgs e)
         {
-            //if (articulo.Imagenes.Count > 0)
-            //{
-            //    currentImageIndex = (currentImageIndex - 1 + articulo.Imagenes.Count) % articulo.Imagenes.Count;
-            //    MostrarImagenActual();
-            //}
+           
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            //if (articulo.Imagenes.Count > 0)
-            //{
-            //    currentImageIndex = (currentImageIndex + 1) % articulo.Imagenes.Count;
-            //    MostrarImagenActual();
-            //}
+            
         }
-        private void MostrarImagenActual()
+        private void cargarImagen()
         {
-            if (articulo.Imagenes.Count > 0)
+            try
             {
-                try
-                {
-                    pbxListaImg.Load(articulo.Imagenes[currentImageIndex].ImagenUrl);
-                }
-                catch
-                {
-                    pbxListaImg.Load("https://via.placeholder.com/150");
-                }
+                pbxListaImg.Load(articulo.Imagenes[0].ImagenUrl);
             }
-            else
+            catch
             {
-                pbxListaImg.Image = null;
+                pbxListaImg.Load("https://imgs.search.brave.com/kb8wBMhFd0vGUo9uR3fzClIsRoWkr9QnZ69Le5BgQiI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS9maWd1cmEtZGli/dWpvcy1hbmltYWRv/cy1iYXJiYS1nYWZh/cy1tdWVzdHJhLW1l/bnNhamUtZXJyb3It/NDA0LWZyZW50ZS1j/aWVsby1zb2xlYWRv/LW51YmVzXzkxMTYy/MC0zNDQ4MC5qcGc_/c2l6ZT02MjYmZXh0/PWpwZw");
             }
         }
+
     }
 }

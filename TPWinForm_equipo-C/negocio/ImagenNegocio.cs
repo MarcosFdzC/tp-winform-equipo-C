@@ -23,8 +23,8 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Insert Into IMAGENES (IdArticulo, ImagenUrl) Values (@IdArticulo, @ImagenUrl)");
-                datos.setearParametro("@IdArticulo", nuevo.IdArticulo);
+                datos.setearConsulta("Insert Into IMAGENES (IdArticulo, ImagenUrl) Values (@idArticulo, @imagenUrl)");
+                datos.setearParametro("@idArticulo", nuevo.IdArticulo);
                 datos.setearParametro("@ImagenUrl", nuevo.ImagenUrl);
                 datos.ejecutarAccion();
             }

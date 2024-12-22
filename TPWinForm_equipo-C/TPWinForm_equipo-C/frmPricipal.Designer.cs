@@ -83,7 +83,7 @@
             // 
             // btnFiltro
             // 
-            this.btnFiltro.Location = new System.Drawing.Point(446, 121);
+            this.btnFiltro.Location = new System.Drawing.Point(420, 121);
             this.btnFiltro.Margin = new System.Windows.Forms.Padding(5);
             this.btnFiltro.Name = "btnFiltro";
             this.btnFiltro.Size = new System.Drawing.Size(100, 28);

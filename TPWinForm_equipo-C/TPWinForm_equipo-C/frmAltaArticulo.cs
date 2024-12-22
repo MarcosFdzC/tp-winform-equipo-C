@@ -55,13 +55,13 @@ namespace TPWinForm_equipo_C
                     
                     artNegocio.modificar(articulo);
                     ImagenNegocio imgNegocio = new ImagenNegocio();
-                    if (articulo.Imagenes[0] != null)
+                    if (articulo.Imagenes[0].ImagenUrl != null)
                     {
                         Imagen imgModificar = new Imagen();
 
                         imgModificar.Id = articulo.Imagenes[0].Id;
-                        imgModificar.ImagenUrl = articulo.Imagenes[0].ImagenUrl;
                         imgModificar.IdArticulo = articulo.Id;
+                        imgModificar.ImagenUrl = txtImagen.Text;
                         imgNegocio.modificar(imgModificar);
                     }
                     else
