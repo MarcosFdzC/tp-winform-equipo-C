@@ -66,7 +66,6 @@ namespace TPWinForm_equipo_C
                     }
                     else
                     {
-                        articulo.Imagenes = new List<Imagen>();
                         Imagen imgAgregar = new Imagen();
                         imgAgregar.IdArticulo = articulo.Id;
                         imgAgregar.ImagenUrl = txtImagen.Text;

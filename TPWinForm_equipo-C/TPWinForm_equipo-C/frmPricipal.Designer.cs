@@ -42,6 +42,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.pbxArticulo = new System.Windows.Forms.PictureBox();
             this.btnEliminarL = new System.Windows.Forms.Button();
+            this.btnEliminarFisico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -182,7 +183,7 @@
             // 
             // btnEliminarL
             // 
-            this.btnEliminarL.Location = new System.Drawing.Point(725, 480);
+            this.btnEliminarL.Location = new System.Drawing.Point(328, 480);
             this.btnEliminarL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminarL.Name = "btnEliminarL";
             this.btnEliminarL.Size = new System.Drawing.Size(99, 31);
@@ -191,11 +192,23 @@
             this.btnEliminarL.UseVisualStyleBackColor = true;
             this.btnEliminarL.Click += new System.EventHandler(this.btnEliminarL_Click);
             // 
+            // btnEliminarFisico
+            // 
+            this.btnEliminarFisico.Location = new System.Drawing.Point(655, 480);
+            this.btnEliminarFisico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminarFisico.Name = "btnEliminarFisico";
+            this.btnEliminarFisico.Size = new System.Drawing.Size(169, 31);
+            this.btnEliminarFisico.TabIndex = 14;
+            this.btnEliminarFisico.Text = "Eliminar Permanente";
+            this.btnEliminarFisico.UseVisualStyleBackColor = true;
+            this.btnEliminarFisico.Click += new System.EventHandler(this.btnEliminarFisico_Click);
+            // 
             // frmPricipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1564, 682);
+            this.Controls.Add(this.btnEliminarFisico);
             this.Controls.Add(this.btnEliminarL);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.pbxArticulo);
@@ -237,6 +250,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.PictureBox pbxArticulo;
         private System.Windows.Forms.Button btnEliminarL;
+        private System.Windows.Forms.Button btnEliminarFisico;
     }
 }
 

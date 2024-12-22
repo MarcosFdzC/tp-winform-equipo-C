@@ -49,5 +49,24 @@ namespace negocio
                 datos.cerrarConexion(); 
             }
         }
+        public void eliminarFisico(Articulo eliminada)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // Cambiar el IdMarca del artículo a un valor negativo
+                datos.setearConsulta("delete from IMAGENES where IdArticulo = @Id");
+                datos.setearParametro("@Id", eliminada.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

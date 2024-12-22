@@ -38,6 +38,7 @@ namespace TPWinForm_equipo_C
                 seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
                 cargarImagen(seleccionado.Imagenes[0].ImagenUrl);
                 ocultarColumnas();
+                dataGridView1.Columns["Precio"].DefaultCellStyle.Format = "F2";
 
             }
             catch (Exception ex)
@@ -157,29 +158,6 @@ namespace TPWinForm_equipo_C
             cargar();
         }
         
-
-        private void eliminar(bool logico = false)
-        {
-            //ArticuloNegocio negocio = new ArticuloNegocio();
-            //Articulo seleccionado;
-            //try
-            //{
-            //    DialogResult respuesta = MessageBox.Show("¿De verdad quieres eliminar este articulo?");
-            //    if (respuesta == DialogResult.Yes)
-            //    {
-            //        seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
-
-            //        negocio.eliminarLogico(seleccionado.Id);
-
-            //        cargar();
-            //    }
-            //}
-            //catch (Exception e)
-            //{
-            //    throw e;
-            //}
-        }
-        
         private void cargarImagen(string imagen)
         {
             try
@@ -201,8 +179,45 @@ namespace TPWinForm_equipo_C
 
         private void btnEliminarL_Click(object sender, EventArgs e)
         {
-            eliminar();
-            cargar();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Eliminar este articulo de manera permanente?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
+                    negocio.eliminarLogico(seleccionado);
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al realizar la eliminación lógica: " + ex.Message);
+            }
         }
+
+        private void btnEliminarFisico_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            ImagenNegocio imgNegocio = new ImagenNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Eliminar este articulo de manera permanente?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
+                    imgNegocio.eliminarFisico(seleccionado);
+                    negocio.eliminarFisico(seleccionado);
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al realizar la eliminación lógica: " + ex.Message);
+            }
+        }
+
     }
 }
