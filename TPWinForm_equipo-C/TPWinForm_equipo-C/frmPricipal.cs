@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -68,11 +69,61 @@ namespace TPWinForm_equipo_C
             dataGridView1.Columns["Id"].Visible = false;
             dataGridView1.Columns["Codigo"].Visible = false;
         }
+        private bool validarFiltro()
+        {
+            if (cboCampo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor seleccione un campo..");
+                return true;
+            }
+            if (cboCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor seleccione un criterio..");
+                return true;
+            }
+            if (cboCampo.SelectedItem.ToString() == "Número")
+            {
+                if ( string.IsNullOrEmpty(txtFiltro.Text) )
+                {
+                    MessageBox.Show("Debes cargar el filtro para numéricos..");
+                    return true;
+                }
+                if ( !(soloNumeros(txtFiltro.Text)) )
+                {
+                    MessageBox.Show("Solo números para cargar por un campo numérico");
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if ( !( char.IsNumber(caracter) ) )
+                    return false;
+            }
+            return true;
+        }
 
         private void btnFiltro_Click(object sender, EventArgs e)
         {
-            
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                if (validarFiltro())
+                    return;
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltro.Text;
+                dataGridView1.DataSource = negocio.filtrar(campo, criterio, filtro);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
 
         private void txtFiltro_KeyPress(object sender, KeyPressEventArgs e)
         {

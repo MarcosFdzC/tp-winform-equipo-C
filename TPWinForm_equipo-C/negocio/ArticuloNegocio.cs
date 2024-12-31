@@ -11,14 +11,14 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
-        public object filtrar(string campo, string criterio, string filtro)
+        public List<Articulo> filtrar(string campo, string criterio, string filtro)
         {
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                string consulta = "Select Art.Id IdArticulo, Codigo, Nombre, Art.Descripcion ArtDescripcion, IdMarca, M.Descripcion Marca, IdCategoria, Cat.Descripcion Categoria, Img.Id IdImagen, Img.ImagenUrl, Art.Precio From ARTICULOS Art, MARCAS M, CATEGORIAS Cat, IMAGENES Img where Art.IdMarca = M.Id AND Art.IdCategoria = Cat.Id AND Img.IdArticulo = Art.Id";
+                string consulta = "Select Art.Id IdArticulo, Codigo, Nombre, Art.Descripcion ArtDescripcion, IdMarca, M.Descripcion Marca, IdCategoria, Cat.Descripcion Categoria, Img.Id IdImagen, Img.ImagenUrl, Art.Precio From ARTICULOS Art, MARCAS M, CATEGORIAS Cat, IMAGENES Img where Art.IdMarca = M.Id AND Art.IdCategoria = Cat.Id AND Img.IdArticulo = Art.Id AND";
 
                 switch (campo)
                 {
@@ -33,6 +33,20 @@ namespace negocio
                                 break;
                             default:
                                 consulta += "Art.Precio = " + filtro;
+                                break;
+                        }
+                        break;
+                    case "Descripcion":
+                        switch (criterio)
+                        {
+                            case "Comienza con:":
+                                consulta += "ArtDescripcion LIKE '" + filtro + "%'";
+                                break;
+                            case "Termina con:":
+                                consulta += "ArtDescripcion LIKE '%" + filtro + "'";
+                                break;
+                            case "Contiene:":
+                                consulta += "ArtDescripcion LIKE '%" + filtro + "%'";
                                 break;
                         }
                         break;
@@ -135,17 +149,18 @@ namespace negocio
         {
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
 
             try
             {
-                datos.setearConsulta("Select Art.Id IdArticulo, Codigo, Nombre, Art.Descripcion ArtDescripcion, IdMarca, M.Descripcion Marca, IdCategoria, Cat.Descripcion Categoria, Img.Id IdImagen, Img.ImagenUrl, Art.Precio From ARTICULOS Art, MARCAS M, CATEGORIAS Cat, IMAGENES Img where Art.IdMarca = M.Id AND Art.IdCategoria = Cat.Id AND Img.IdArticulo = Art.Id");//Consulta final con sus alias ya incluidos, esta consulta trae todos los datos que necesitamos cargar en la lista de tipo Ariculo
+                datos.setearConsulta("Select Art.Id IdArticulo, Codigo, Nombre, Art.Descripcion ArtDescripcion, IdMarca, M.Descripcion Marca, IdCategoria, Cat.Descripcion Categoria, Precio From ARTICULOS Art, MARCAS M, CATEGORIAS Cat where Art.IdMarca = M.Id AND Art.IdCategoria = Cat.Id");//Consulta final-trae todos los datos menos los de la tabla img
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
                     if (!(datos.Lector["IdArticulo"] is DBNull))
-                        aux.Id = (int)datos.Lector["IdArticulo"];//Entre corchetes va el nombre/alias de la columna. En este caso IdArticulo es un alias que le puse para diferenciarlo de los otros ids. Como por ejemplo el Id de Categoria o Marca.
+                        aux.Id = (int)datos.Lector["IdArticulo"];
                     if (!(datos.Lector["Codigo"] is DBNull))
                         aux.Codigo = (string)datos.Lector["Codigo"];
                     if (!(datos.Lector["Nombre"] is DBNull))
@@ -164,17 +179,26 @@ namespace negocio
                         aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
                     if (!(datos.Lector["Categoria"] is DBNull))
                         aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+
                     //Instancia Imagen auxiliar para despues ser agregada a la lista
-                    Imagen ImgAux = new Imagen();
-                    if (!(datos.Lector["IdImagen"] is DBNull))
-                        ImgAux.Id = (int)datos.Lector["IdImagen"];
-                    if (!(datos.Lector["IdArticulo"] is DBNull))
-                        ImgAux.IdArticulo = (int)datos.Lector["IdArticulo"];
-                    if (!(datos.Lector["ImagenUrl"] is DBNull))
-                        ImgAux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
-                    //Instancia Lista Imagen
+                    AccesoDatos datosImg = new AccesoDatos();
+                    datosImg.setearConsulta("Select Id, IdArticulo, ImagenUrl from IMAGENES where IdArticulo = @imgIdArt");
+                    datosImg.setearParametro("@imgIdArt", (int)datos.Lector["IdArticulo"]);
+                    datosImg.ejecutarLectura();
                     aux.Imagenes = new List<Imagen>();
-                    aux.Imagenes.Add(ImgAux);
+                    while (datosImg.Lector.Read())
+                    {
+                        Imagen ImgAux = new Imagen();
+                        if (!(datosImg.Lector["Id"] is DBNull))
+                            ImgAux.Id = (int)datosImg.Lector["Id"];
+                        if (!(datosImg.Lector["IdArticulo"] is DBNull))
+                            ImgAux.IdArticulo = (int)datosImg.Lector["IdArticulo"];
+                        if (!(datosImg.Lector["ImagenUrl"] is DBNull))
+                            ImgAux.ImagenUrl = (string)datosImg.Lector["ImagenUrl"];
+                        //Instancia Lista Imagen
+                        aux.Imagenes.Add(ImgAux);
+                    }
+                    datosImg.cerrarConexion();
                     if (!(datos.Lector["Precio"] is DBNull))
                         aux.Precio = (decimal)datos.Lector["Precio"];
 

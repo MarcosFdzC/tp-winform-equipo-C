@@ -79,6 +79,7 @@
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(249, 22);
             this.txtFiltro.TabIndex = 2;
+            this.txtFiltro.TabStop = false;
             this.txtFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltro_KeyPress);
             // 
             // btnFiltro
@@ -96,7 +97,7 @@
             // 
             this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCampo.FormattingEnabled = true;
-            this.cboCampo.Location = new System.Drawing.Point(119, 52);
+            this.cboCampo.Location = new System.Drawing.Point(143, 72);
             this.cboCampo.Margin = new System.Windows.Forms.Padding(5);
             this.cboCampo.Name = "cboCampo";
             this.cboCampo.Size = new System.Drawing.Size(160, 24);
@@ -106,7 +107,7 @@
             // lblCampo
             // 
             this.lblCampo.AutoSize = true;
-            this.lblCampo.Location = new System.Drawing.Point(56, 55);
+            this.lblCampo.Location = new System.Drawing.Point(66, 75);
             this.lblCampo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCampo.Name = "lblCampo";
             this.lblCampo.Size = new System.Drawing.Size(54, 16);
@@ -117,7 +118,7 @@
             // 
             this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterio.FormattingEnabled = true;
-            this.cboCriterio.Location = new System.Drawing.Point(386, 52);
+            this.cboCriterio.Location = new System.Drawing.Point(420, 72);
             this.cboCriterio.Margin = new System.Windows.Forms.Padding(5);
             this.cboCriterio.Name = "cboCriterio";
             this.cboCriterio.Size = new System.Drawing.Size(160, 24);
@@ -126,7 +127,7 @@
             // lblCriterio
             // 
             this.lblCriterio.AutoSize = true;
-            this.lblCriterio.Location = new System.Drawing.Point(325, 55);
+            this.lblCriterio.Location = new System.Drawing.Point(341, 75);
             this.lblCriterio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCriterio.Name = "lblCriterio";
             this.lblCriterio.Size = new System.Drawing.Size(52, 16);
@@ -136,7 +137,7 @@
             // lblFiltroAvanzado
             // 
             this.lblFiltroAvanzado.AutoSize = true;
-            this.lblFiltroAvanzado.Location = new System.Drawing.Point(576, 55);
+            this.lblFiltroAvanzado.Location = new System.Drawing.Point(607, 124);
             this.lblFiltroAvanzado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltroAvanzado.Name = "lblFiltroAvanzado";
             this.lblFiltroAvanzado.Size = new System.Drawing.Size(39, 16);
@@ -145,7 +146,7 @@
             // 
             // txtFiltroAvanzado
             // 
-            this.txtFiltroAvanzado.Location = new System.Drawing.Point(624, 52);
+            this.txtFiltroAvanzado.Location = new System.Drawing.Point(655, 121);
             this.txtFiltroAvanzado.Margin = new System.Windows.Forms.Padding(5);
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(132, 22);
@@ -176,6 +177,7 @@
             // pbxArticulo
             // 
             this.pbxArticulo.Location = new System.Drawing.Point(832, 165);
+            this.pbxArticulo.MaximumSize = new System.Drawing.Size(333, 300);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(333, 289);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -219,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1564, 682);
+            this.ClientSize = new System.Drawing.Size(1285, 682);
             this.Controls.Add(this.btnVerDetalle);
             this.Controls.Add(this.btnEliminarFisico);
             this.Controls.Add(this.btnEliminarL);
@@ -238,7 +240,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmPricipal";
-            this.Text = "Form1";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.frmPricipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();

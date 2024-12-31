@@ -9,12 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dominio;
+using System.IO;
+using System.Configuration;
 
 namespace TPWinForm_equipo_C
 {
     public partial class frmAltaArticulo : Form
     {
         private Articulo articulo = null;
+        private OpenFileDialog archivo = null;
         public frmAltaArticulo()
         {
             InitializeComponent();
@@ -96,6 +99,7 @@ namespace TPWinForm_equipo_C
                         }
                     }
                 }
+                if (archivo != null && (txtImagen.Text.ToUpper().Contains("HTTP")))
                 Close();
             }
             catch(Exception ex) 
@@ -153,6 +157,19 @@ namespace TPWinForm_equipo_C
             {
                 //carga un placeholder si no se agregó ninguna imagen o la url es invalida
                 pbxArticulo.Load("https://i0.wp.com/mckameyanimalcenter.org/wp-content/uploads/2022/05/placeholder-661.png?fit=1200%2C800&ssl=1");
+            }
+        }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg!|png|*.png";
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtImagen.Text = archivo.FileName;
+                cargarImagen(archivo.FileName);
+                //guardo la imagen
+                //File.Copy(archivo.FileName, ConfigurationManager.AppSettings["Image-folder"] + archivo.SafeFileName);
             }
         }
     }
