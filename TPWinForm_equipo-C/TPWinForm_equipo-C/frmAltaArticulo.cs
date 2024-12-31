@@ -39,6 +39,7 @@ namespace TPWinForm_equipo_C
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio artNegocio = new ArticuloNegocio();
+            bool cerrar = false;
             try
             {
                 if (articulo == null)
@@ -77,7 +78,22 @@ namespace TPWinForm_equipo_C
                     
                     MessageBox.Show("Articulo modificado exitosamente!");
                 }
-                else
+
+                else if ((precio < 0) || (precio == 0))
+                {
+                    MessageBox.Show("Por favor, ingrese un precio válido.");
+                    cerrar = true;
+                    Close();
+                }
+
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtCodigo.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))    
+                {
+                    MessageBox.Show("Por favor, no deje espacios en blanco.");
+                    cerrar = true;
+                    Close();
+                }
+
+                else if (cerrar == false)
                 {
                     artNegocio.agregar(articulo);
                     //hasta acá agregó un articulo a la tabla ARTICULOS
@@ -98,6 +114,11 @@ namespace TPWinForm_equipo_C
                             MessageBox.Show("Agregado exitosamente!");
                         }
                     }
+                }
+
+                else
+                {
+                    Close();
                 }
                 if (archivo != null && (txtImagen.Text.ToUpper().Contains("HTTP")))
                 Close();
@@ -171,6 +192,11 @@ namespace TPWinForm_equipo_C
                 //guardo la imagen
                 //File.Copy(archivo.FileName, ConfigurationManager.AppSettings["Image-folder"] + archivo.SafeFileName);
             }
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
