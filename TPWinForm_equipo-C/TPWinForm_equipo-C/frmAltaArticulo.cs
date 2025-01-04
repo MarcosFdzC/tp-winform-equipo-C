@@ -52,46 +52,53 @@ namespace TPWinForm_equipo_C
                 articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 if (decimal.TryParse(txtPrecio.Text, out decimal precio))//hacemos una conversion del textbox para que el valor "string" que devuelve convertirlo en "decimal".
                     articulo.Precio = precio;
-                else
-                    MessageBox.Show("Por favor, ingrese un precio válido.");
+
                 if(articulo.Id != 0)
                 {
-                    
-                    artNegocio.modificar(articulo);
-                    ImagenNegocio imgNegocio = new ImagenNegocio();
-                    if (articulo.Imagenes[0].ImagenUrl != null)
+                    if( !(string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtCodigo.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text)) )
                     {
-                        Imagen imgModificar = new Imagen();
+                        if (!(articulo.Precio <= 0))
+                        {
+                            artNegocio.modificar(articulo);
+                            ImagenNegocio imgNegocio = new ImagenNegocio();
+                            if (articulo.Imagenes[0].ImagenUrl != null)
+                            {
+                                Imagen imgModificar = new Imagen();
 
-                        imgModificar.Id = articulo.Imagenes[0].Id;
-                        imgModificar.IdArticulo = articulo.Id;
-                        imgModificar.ImagenUrl = txtImagen.Text;
-                        imgNegocio.modificar(imgModificar);
+                                imgModificar.Id = articulo.Imagenes[0].Id;
+                                imgModificar.IdArticulo = articulo.Id;
+                                imgModificar.ImagenUrl = txtImagen.Text;
+                                imgNegocio.modificar(imgModificar);
+                            }
+                            else
+                            {
+                                Imagen imgAgregar = new Imagen();
+                                imgAgregar.IdArticulo = articulo.Id;
+                                imgAgregar.ImagenUrl = txtImagen.Text;
+                                imgNegocio.agregar(imgAgregar);
+                            }
+                            MessageBox.Show("Articulo modificado exitosamente!");
+                            Close();
+                        }
+                        else
+                            MessageBox.Show("Por favor, ingrese un precio válido.");
+                        
                     }
                     else
-                    {
-                        Imagen imgAgregar = new Imagen();
-                        imgAgregar.IdArticulo = articulo.Id;
-                        imgAgregar.ImagenUrl = txtImagen.Text;
-                        imgNegocio.agregar(imgAgregar);
-                    }
-                    
-                    MessageBox.Show("Articulo modificado exitosamente!");
+                        MessageBox.Show("Por favor, no datos en blanco o precio negativo");
+                }
+                else if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtCodigo.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))
+                {
+                    MessageBox.Show("Por favor, no deje espacios en blanco.");
+                    cerrar = true;
                 }
 
                 else if ((precio < 0) || (precio == 0))
                 {
-                    MessageBox.Show("Por favor, ingrese un precio válido.");
+                    MessageBox.Show("por favor, ingrese un precio válido.");
                     cerrar = true;
-                    Close();
                 }
 
-                if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtCodigo.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))    
-                {
-                    MessageBox.Show("Por favor, no deje espacios en blanco.");
-                    cerrar = true;
-                    Close();
-                }
 
                 else if (cerrar == false)
                 {
@@ -112,6 +119,7 @@ namespace TPWinForm_equipo_C
                             //Ahora tengo los datos cargados y los agregamos a la tabla Imagenes
                             ImgNegocio.agregar(ImgAux);
                             MessageBox.Show("Agregado exitosamente!");
+                            Close();
                         }
                     }
                 }
