@@ -118,6 +118,7 @@
             this.txtAgregarImg.Name = "txtAgregarImg";
             this.txtAgregarImg.Size = new System.Drawing.Size(334, 22);
             this.txtAgregarImg.TabIndex = 7;
+            this.txtAgregarImg.TextChanged += new System.EventHandler(this.txtAgregarImg_TextChanged);
             // 
             // txtCodigo
             // 

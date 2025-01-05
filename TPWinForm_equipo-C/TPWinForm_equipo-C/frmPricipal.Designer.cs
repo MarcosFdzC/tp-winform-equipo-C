@@ -44,6 +44,8 @@
             this.btnEliminarL = new System.Windows.Forms.Button();
             this.btnEliminarFisico = new System.Windows.Forms.Button();
             this.btnVerDetalle = new System.Windows.Forms.Button();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +60,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(803, 289);
+            this.dataGridView1.Size = new System.Drawing.Size(803, 320);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -154,7 +156,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(21, 480);
+            this.btnAgregar.Location = new System.Drawing.Point(21, 510);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 31);
@@ -165,7 +167,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(125, 480);
+            this.btnModificar.Location = new System.Drawing.Point(125, 510);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(99, 31);
@@ -186,7 +188,7 @@
             // 
             // btnEliminarL
             // 
-            this.btnEliminarL.Location = new System.Drawing.Point(230, 480);
+            this.btnEliminarL.Location = new System.Drawing.Point(230, 510);
             this.btnEliminarL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminarL.Name = "btnEliminarL";
             this.btnEliminarL.Size = new System.Drawing.Size(99, 31);
@@ -197,7 +199,7 @@
             // 
             // btnEliminarFisico
             // 
-            this.btnEliminarFisico.Location = new System.Drawing.Point(655, 480);
+            this.btnEliminarFisico.Location = new System.Drawing.Point(655, 510);
             this.btnEliminarFisico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminarFisico.Name = "btnEliminarFisico";
             this.btnEliminarFisico.Size = new System.Drawing.Size(169, 31);
@@ -208,7 +210,7 @@
             // 
             // btnVerDetalle
             // 
-            this.btnVerDetalle.Location = new System.Drawing.Point(344, 480);
+            this.btnVerDetalle.Location = new System.Drawing.Point(344, 510);
             this.btnVerDetalle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVerDetalle.Name = "btnVerDetalle";
             this.btnVerDetalle.Size = new System.Drawing.Size(228, 31);
@@ -217,11 +219,35 @@
             this.btnVerDetalle.UseVisualStyleBackColor = true;
             this.btnVerDetalle.Click += new System.EventHandler(this.btnVerDetalle_Click);
             // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Location = new System.Drawing.Point(851, 459);
+            this.btnAnterior.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(82, 26);
+            this.btnAnterior.TabIndex = 17;
+            this.btnAnterior.Text = "Anterior";
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Location = new System.Drawing.Point(1045, 459);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(99, 26);
+            this.btnSiguiente.TabIndex = 18;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
             // frmPricipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1285, 682);
+            this.Controls.Add(this.btnSiguiente);
+            this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnVerDetalle);
             this.Controls.Add(this.btnEliminarFisico);
             this.Controls.Add(this.btnEliminarL);
@@ -267,6 +293,8 @@
         private System.Windows.Forms.Button btnEliminarL;
         private System.Windows.Forms.Button btnEliminarFisico;
         private System.Windows.Forms.Button btnVerDetalle;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnSiguiente;
     }
 }
 
