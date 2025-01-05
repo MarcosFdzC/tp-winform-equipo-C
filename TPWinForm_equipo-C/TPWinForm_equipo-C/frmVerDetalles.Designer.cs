@@ -52,7 +52,7 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(35, 45);
+            this.lblCodigo.Location = new System.Drawing.Point(52, 48);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(54, 16);
             this.lblCodigo.TabIndex = 0;
@@ -61,7 +61,7 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(35, 187);
+            this.lblMarca.Location = new System.Drawing.Point(52, 190);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(48, 16);
             this.lblMarca.TabIndex = 1;
@@ -70,7 +70,7 @@
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(20, 213);
+            this.lblCategoria.Location = new System.Drawing.Point(37, 216);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(69, 16);
             this.lblCategoria.TabIndex = 2;
@@ -79,7 +79,7 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(12, 105);
+            this.lblDesc.Location = new System.Drawing.Point(29, 108);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(82, 16);
             this.lblDesc.TabIndex = 3;
@@ -88,7 +88,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(35, 77);
+            this.lblNombre.Location = new System.Drawing.Point(52, 80);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(59, 16);
             this.lblNombre.TabIndex = 4;
@@ -97,7 +97,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(35, 241);
+            this.lblPrecio.Location = new System.Drawing.Point(52, 244);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(49, 16);
             this.lblPrecio.TabIndex = 5;
@@ -106,7 +106,7 @@
             // lblAgregarImg
             // 
             this.lblAgregarImg.AutoSize = true;
-            this.lblAgregarImg.Location = new System.Drawing.Point(40, 372);
+            this.lblAgregarImg.Location = new System.Drawing.Point(12, 372);
             this.lblAgregarImg.Name = "lblAgregarImg";
             this.lblAgregarImg.Size = new System.Drawing.Size(107, 16);
             this.lblAgregarImg.TabIndex = 6;
@@ -114,15 +114,15 @@
             // 
             // txtAgregarImg
             // 
-            this.txtAgregarImg.Location = new System.Drawing.Point(153, 369);
+            this.txtAgregarImg.Location = new System.Drawing.Point(124, 369);
             this.txtAgregarImg.Name = "txtAgregarImg";
-            this.txtAgregarImg.Size = new System.Drawing.Size(334, 22);
+            this.txtAgregarImg.Size = new System.Drawing.Size(363, 22);
             this.txtAgregarImg.TabIndex = 7;
             this.txtAgregarImg.TextChanged += new System.EventHandler(this.txtAgregarImg_TextChanged);
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(106, 42);
+            this.txtCodigo.Location = new System.Drawing.Point(124, 45);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.ReadOnly = true;
             this.txtCodigo.Size = new System.Drawing.Size(173, 22);
@@ -130,7 +130,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(106, 74);
+            this.txtNombre.Location = new System.Drawing.Point(124, 77);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(173, 22);
@@ -138,7 +138,7 @@
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(106, 102);
+            this.txtDesc.Location = new System.Drawing.Point(124, 105);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.ReadOnly = true;
@@ -147,7 +147,7 @@
             // 
             // txtMarca
             // 
-            this.txtMarca.Location = new System.Drawing.Point(106, 184);
+            this.txtMarca.Location = new System.Drawing.Point(124, 187);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.ReadOnly = true;
             this.txtMarca.Size = new System.Drawing.Size(173, 22);
@@ -155,7 +155,7 @@
             // 
             // txtCategoria
             // 
-            this.txtCategoria.Location = new System.Drawing.Point(106, 210);
+            this.txtCategoria.Location = new System.Drawing.Point(124, 213);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.ReadOnly = true;
             this.txtCategoria.Size = new System.Drawing.Size(173, 22);
@@ -163,7 +163,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(106, 238);
+            this.txtPrecio.Location = new System.Drawing.Point(124, 241);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(173, 22);
@@ -171,12 +171,13 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(527, 367);
+            this.btnAgregar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAgregar.Location = new System.Drawing.Point(502, 367);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 27);
             this.btnAgregar.TabIndex = 14;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // pbxListaImg
@@ -190,28 +191,31 @@
             // 
             // btnAnterior
             // 
-            this.btnAnterior.Location = new System.Drawing.Point(390, 287);
+            this.btnAnterior.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAnterior.Location = new System.Drawing.Point(379, 270);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(75, 23);
             this.btnAnterior.TabIndex = 16;
             this.btnAnterior.Text = "Anterior";
-            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(494, 287);
+            this.btnSiguiente.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSiguiente.Location = new System.Drawing.Point(502, 270);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
             this.btnSiguiente.TabIndex = 17;
             this.btnSiguiente.Text = "Siguiente";
-            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // frmVerDetalles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnAnterior);

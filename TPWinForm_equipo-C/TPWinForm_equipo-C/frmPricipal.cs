@@ -336,5 +336,19 @@ namespace TPWinForm_equipo_C
             }
             
         }
+
+        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MarcaNegocio negocio = new MarcaNegocio();
+            frmABM abmMarca = new frmABM(negocio.listar());
+            abmMarca.ShowDialog();
+        }
+
+        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CategoriaNegocio negocio = new CategoriaNegocio();
+            frmABM abmCategoria = new frmABM(negocio.listar());
+            abmCategoria.ShowDialog();
+        }
     }
 }

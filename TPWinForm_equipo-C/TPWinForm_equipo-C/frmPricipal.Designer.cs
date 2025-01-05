@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPricipal));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
@@ -46,8 +47,14 @@
             this.btnVerDetalle = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.lblVer = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.TsMarca = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsCategoria = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -156,28 +163,31 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnAgregar.Location = new System.Drawing.Point(21, 510);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 31);
             this.btnAgregar.TabIndex = 10;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
+            this.btnModificar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnModificar.Location = new System.Drawing.Point(125, 510);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(99, 31);
             this.btnModificar.TabIndex = 11;
             this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // pbxArticulo
             // 
+            this.pbxArticulo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbxArticulo.Location = new System.Drawing.Point(832, 165);
             this.pbxArticulo.MaximumSize = new System.Drawing.Size(333, 300);
             this.pbxArticulo.Name = "pbxArticulo";
@@ -188,64 +198,115 @@
             // 
             // btnEliminarL
             // 
+            this.btnEliminarL.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEliminarL.Location = new System.Drawing.Point(230, 510);
             this.btnEliminarL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminarL.Name = "btnEliminarL";
             this.btnEliminarL.Size = new System.Drawing.Size(99, 31);
             this.btnEliminarL.TabIndex = 13;
             this.btnEliminarL.Text = "Eliminar";
-            this.btnEliminarL.UseVisualStyleBackColor = true;
+            this.btnEliminarL.UseVisualStyleBackColor = false;
             this.btnEliminarL.Click += new System.EventHandler(this.btnEliminarL_Click);
             // 
             // btnEliminarFisico
             // 
+            this.btnEliminarFisico.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEliminarFisico.Location = new System.Drawing.Point(655, 510);
             this.btnEliminarFisico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminarFisico.Name = "btnEliminarFisico";
             this.btnEliminarFisico.Size = new System.Drawing.Size(169, 31);
             this.btnEliminarFisico.TabIndex = 14;
             this.btnEliminarFisico.Text = "Eliminar Permanente";
-            this.btnEliminarFisico.UseVisualStyleBackColor = true;
+            this.btnEliminarFisico.UseVisualStyleBackColor = false;
             this.btnEliminarFisico.Click += new System.EventHandler(this.btnEliminarFisico_Click);
             // 
             // btnVerDetalle
             // 
+            this.btnVerDetalle.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnVerDetalle.Location = new System.Drawing.Point(344, 510);
             this.btnVerDetalle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVerDetalle.Name = "btnVerDetalle";
             this.btnVerDetalle.Size = new System.Drawing.Size(228, 31);
             this.btnVerDetalle.TabIndex = 16;
             this.btnVerDetalle.Text = "Ver detalles / Agregar Imagnes";
-            this.btnVerDetalle.UseVisualStyleBackColor = true;
+            this.btnVerDetalle.UseVisualStyleBackColor = false;
             this.btnVerDetalle.Click += new System.EventHandler(this.btnVerDetalle_Click);
             // 
             // btnAnterior
             // 
-            this.btnAnterior.Location = new System.Drawing.Point(851, 459);
+            this.btnAnterior.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAnterior.Location = new System.Drawing.Point(878, 459);
             this.btnAnterior.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(82, 26);
             this.btnAnterior.TabIndex = 17;
             this.btnAnterior.Text = "Anterior";
-            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnSiguiente
             // 
+            this.btnSiguiente.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSiguiente.Location = new System.Drawing.Point(1045, 459);
             this.btnSiguiente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(99, 26);
             this.btnSiguiente.TabIndex = 18;
             this.btnSiguiente.Text = "Siguiente";
-            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblVer,
+            this.toolStripSplitButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1285, 27);
+            this.toolStrip1.TabIndex = 19;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // lblVer
+            // 
+            this.lblVer.Name = "lblVer";
+            this.lblVer.Size = new System.Drawing.Size(30, 24);
+            this.lblVer.Text = "Ver";
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsMarca,
+            this.TsCategoria});
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(39, 24);
+            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
+            // 
+            // TsMarca
+            // 
+            this.TsMarca.Name = "TsMarca";
+            this.TsMarca.Size = new System.Drawing.Size(157, 26);
+            this.TsMarca.Text = "Marca";
+            this.TsMarca.Click += new System.EventHandler(this.marcaToolStripMenuItem_Click);
+            // 
+            // TsCategoria
+            // 
+            this.TsCategoria.Name = "TsCategoria";
+            this.TsCategoria.Size = new System.Drawing.Size(157, 26);
+            this.TsCategoria.Text = "Categoria";
+            this.TsCategoria.Click += new System.EventHandler(this.categoriaToolStripMenuItem_Click);
             // 
             // frmPricipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(1285, 682);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnVerDetalle);
@@ -266,10 +327,12 @@
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmPricipal";
-            this.Text = "s";
+            this.Text = "Articulos";
             this.Load += new System.EventHandler(this.frmPricipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,6 +358,11 @@
         private System.Windows.Forms.Button btnVerDetalle;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel lblVer;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripMenuItem TsMarca;
+        private System.Windows.Forms.ToolStripMenuItem TsCategoria;
     }
 }
 
