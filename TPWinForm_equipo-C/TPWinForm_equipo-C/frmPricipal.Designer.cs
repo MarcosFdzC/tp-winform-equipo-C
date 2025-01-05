@@ -264,14 +264,14 @@
             this.toolStripSplitButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1285, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1285, 31);
             this.toolStrip1.TabIndex = 19;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // lblVer
             // 
             this.lblVer.Name = "lblVer";
-            this.lblVer.Size = new System.Drawing.Size(30, 24);
+            this.lblVer.Size = new System.Drawing.Size(30, 28);
             this.lblVer.Text = "Ver";
             // 
             // toolStripSplitButton1
@@ -283,20 +283,20 @@
             this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(39, 24);
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(39, 28);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             // 
             // TsMarca
             // 
             this.TsMarca.Name = "TsMarca";
-            this.TsMarca.Size = new System.Drawing.Size(157, 26);
+            this.TsMarca.Size = new System.Drawing.Size(224, 26);
             this.TsMarca.Text = "Marca";
             this.TsMarca.Click += new System.EventHandler(this.marcaToolStripMenuItem_Click);
             // 
             // TsCategoria
             // 
             this.TsCategoria.Name = "TsCategoria";
-            this.TsCategoria.Size = new System.Drawing.Size(157, 26);
+            this.TsCategoria.Size = new System.Drawing.Size(224, 26);
             this.TsCategoria.Text = "Categoria";
             this.TsCategoria.Click += new System.EventHandler(this.categoriaToolStripMenuItem_Click);
             // 
@@ -325,6 +325,7 @@
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmPricipal";
             this.Text = "Articulos";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmABM));
             this.lblABM = new System.Windows.Forms.Label();
             this.cboListar = new System.Windows.Forms.ComboBox();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -136,6 +137,7 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.cboListar);
             this.Controls.Add(this.lblABM);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmABM";
             this.Text = "frmABMMarca";
             this.Load += new System.EventHandler(this.frmABMMarca_Load);
